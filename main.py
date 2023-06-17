@@ -24,7 +24,7 @@ miControladorProyecto = ControladorProyecto()
 
 #####################################Proyecto############################################################
 @app.route("/Proyecto", methods=['GET'])
-def getProyecto():
+def getProyectos():
    json = miControladorProyecto.index()
    return jsonify(json)
 
@@ -56,7 +56,7 @@ def eliminarProyecto(id):
 
 #########################Servicios Provedor###################################
 @app.route("/Provedor", methods=['GET'])
-def getProvedor():
+def getProvedores():
     json = miControladorProvedor.index()
     return jsonify(json)
 
@@ -72,7 +72,7 @@ def eliminarProvedor(id):
 
 #########################Servicios Material###################################
 @app.route("/Material", methods=['GET'])
-def getMaterial():
+def getMateriales():
     json = miControladorMaterial.index()
     return jsonify(json)
 
