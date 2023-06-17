@@ -1,0 +1,7 @@
+{
+"url-backend": "127.0.0.1",
+"port": 9999,
+
+  "data-db-connection": "mongodb+srv://buildadmin:1061806110@buildsyncdb.amq8gnm.mongodb.net/BuildSyncDB?retryWrites=true&w=majority",
+  "name-db":"BuildSyncDB"
+}
