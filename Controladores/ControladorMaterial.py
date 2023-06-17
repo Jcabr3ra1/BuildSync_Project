@@ -38,4 +38,4 @@ class ControladorMaterial():
 
     def delete(self, id):
         print("Elimiando Material con id ", id)
-        return self.repositorioProvedor.delete(id)
+        return self.repositorioMaterial.delete(id)

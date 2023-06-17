@@ -22,7 +22,7 @@ miControladorMaterial = ControladorMaterial()
 miControladorProvedor = ControladorProvedor()
 miControladorProyecto = ControladorProyecto()
 
-#####################################Proyecto############################################################
+################################Servicios Proyecto###################################
 @app.route("/Proyecto", methods=['GET'])
 def getProyectos():
    json = miControladorProyecto.index()
@@ -76,7 +76,6 @@ def getMateriales():
     json = miControladorMaterial.index()
     return jsonify(json)
 
-
 @app.route("/Material", methods=['POST'])
 def crearMaterial():
     data = request.get_json()
@@ -93,7 +92,6 @@ def modificarMaterial(id):
     data = request.get_json()
     json = miControladorMaterial.update(id, data)
     return jsonify(json)
-
 
 @app.route("/Material/<string:id>", methods=['DELETE'])
 def eliminarMaterial(id):
