@@ -25,6 +25,11 @@ class ControladorInventario():
     def create(self, laInventario, id_Material, id_Proyecto):
         print("Creando Inventario")
         nuevoInventario = Inventario(laInventario)
+        laMaterial = Material(self.repositorioMaterial.findById(id_Material))
+        laProyecto = Proyecto(self.repositorioProyecto.findById(id_Proyecto))
+        nuevoInventario.Material = laMaterial
+        nuevoInventario.Proyecto = laProyecto
+
         return self.repositorioInventario.save(nuevoInventario)
 
     def show(self, id):
@@ -32,11 +37,13 @@ class ControladorInventario():
         laInventario = Inventario(self.repositorioInventario.findById(id))
         return laInventario.__dict__
 
-    def update(self, id, laInventario):
+    def update(self, id, id_Material, id_Proyecto):
         print("Actualizando Inventario con id ", id)
         InventarioActual = Inventario(self.repositorioInventario.findById(id))
-        InventarioActual.Nombre = laInventario["Nombre"]
-        InventarioActual.Descripcion = laInventario["Descripcion"]
+        laMaterial = Material(self.repositorioMaterial.findById(id_Material))
+        laProyecto = Proyecto(self.repositorioProyecto.findById(id_Proyecto))
+        InventarioActual.Material = laMaterial
+        InventarioActual.Proyecto = laProyecto
         return self.repositorioInventario.save(InventarioActual)
 
     def delete(self, id):
